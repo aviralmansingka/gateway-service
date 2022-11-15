@@ -26,7 +26,7 @@ data:
             filters:
             - StripPrefix=1
           - id: wx
-            uri: http://weather-service:8081/
+            uri: lb://weather-service:8081
             predicates:
             - Path=/weather/**
             filters:

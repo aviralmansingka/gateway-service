@@ -6,7 +6,8 @@ metadata:
     app: gateway-service
 spec:
   ports:
-    - port: 8083
+    - port: 80
+      targetPort: 8082
       protocol: TCP
   selector:
     app: gateway-service
@@ -30,3 +31,5 @@ spec:
       containers:
         - name: gateway-service
           image: gcr.io/aviralmansingka-pulumi-gke/gateway-service
+          ports:
+            - containerPort: 8082
