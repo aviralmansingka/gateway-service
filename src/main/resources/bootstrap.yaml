@@ -1,0 +1,20 @@
+encrypt.key: aviral
+management:
+  endpoint:
+    restart:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: restart,health,info,beans,env,mappings
+spring:
+  cloud:
+    kubernetes:
+      config:
+        enabled: true
+        sources:
+          - namespace: default
+            name: gateway-service
+      reload:
+        enabled: true
+        strategy: restart_context
